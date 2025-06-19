@@ -7,6 +7,13 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata: Metadata = {
   title: 'ShopPro - Tu Ecommerce de Confianza',
   description: 'Encuentra los mejores productos al mejor precio',
+  keywords: 'ecommerce, tienda online, compras, productos',
+  authors: [{ name: 'ShopPro Team' }],
+  openGraph: {
+    title: 'ShopPro - Tu Ecommerce de Confianza',
+    description: 'Encuentra los mejores productos al mejor precio',
+    type: 'website',
+  },
 }
 
 export default function RootLayout({

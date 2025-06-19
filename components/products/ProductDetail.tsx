@@ -111,7 +111,7 @@ export default function ProductDetail({ productId, setView }: ProductDetailProps
                   addToCart(product);
                 }
               }}
-              className="flex-1 bg-blue-500 text-white py-3 rounded-lg hover:bg-blue-600 flex items-center justify-center space-x-2"
+              className="flex-1 bg-green-600 text-white py-3 rounded-lg hover:bg-green-700 flex items-center justify-center space-x-2"
             >
               <ShoppingCart size={20} />
               <span>Añadir al carrito</span>

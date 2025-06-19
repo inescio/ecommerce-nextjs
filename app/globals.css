@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Colores personalizados de Insumos Salud LR */
+:root {
+  --primary-green: #16a34a;
+  --primary-green-dark: #15803d;
+  --secondary-gray: #6b7280;
+}
+
 /* Animaciones personalizadas */
 @keyframes fadeIn {
   from {
@@ -18,20 +25,82 @@
   animation: fadeIn 0.3s ease-out;
 }
 
-/* Scrollbar personalizado */
+/* Efectos hover personalizados */
+.hover-scale {
+  transition: transform 0.2s ease-in-out;
+}
+
+.hover-scale:hover {
+  transform: scale(1.05);
+}
+
+/* Scrollbar personalizado con tema médico */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: #f3f4f6;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #888;
-  border-radius: 4px;
+  background: var(--primary-green);
+  border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: var(--primary-green-dark);
+}
+
+/* Estilos para botones médicos */
+.btn-medical {
+  @apply bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors duration-200;
+}
+
+/* Card de producto mejorada */
+.product-card {
+  @apply bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300;
+}
+
+/* Badge de stock */
+.stock-badge {
+  @apply inline-flex items-center px-2 py-1 rounded-full text-xs font-medium;
+}
+
+.stock-badge.low {
+  @apply bg-red-100 text-red-800;
+}
+
+.stock-badge.medium {
+  @apply bg-yellow-100 text-yellow-800;
+}
+
+.stock-badge.high {
+  @apply bg-green-100 text-green-800;
+}
+
+/* Animación de carga médica */
+@keyframes pulse-medical {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-pulse-medical {
+  animation: pulse-medical 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Focus states con tema verde */
+input:focus,
+textarea:focus,
+select:focus {
+  @apply ring-2 ring-green-500 border-green-500;
+}
+
+/* Botones de categoría activos */
+.category-active {
+  @apply ring-2 ring-green-500 bg-green-50;
 }

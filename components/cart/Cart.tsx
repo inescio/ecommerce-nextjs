@@ -92,7 +92,7 @@ export default function Cart({ setView }: CartProps) {
                     setCartOpen(false);
                   }
                 }}
-                className="w-full bg-blue-500 text-white py-3 rounded-lg hover:bg-blue-600 transition-colors flex items-center justify-center space-x-2"
+                className="w-full bg-green-600 text-white py-3 rounded-lg hover:bg-green-700 transition-colors flex items-center justify-center space-x-2"
               >
                 <CreditCard size={20} />
                 <span>Proceder al pago</span>

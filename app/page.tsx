@@ -1,8 +1,7 @@
-
 'use client';
 
 import React, { useState } from 'react';
-import { Check, Heart, Package, Grid } from 'lucide-react';
+import { Check, Heart, Package, Grid, Truck, Shield, Phone } from 'lucide-react';
 import { AuthProvider } from '@/contexts/AuthContext';
 import { CartProvider } from '@/contexts/CartContext';
 import { WishlistProvider } from '@/contexts/WishlistContext';
@@ -278,12 +277,43 @@ function EcommerceContent() {
         return (
           <div className="container mx-auto px-4 py-8">
             {/* Banner */}
-            <div className="bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-xl p-8 mb-8">
-              <h2 className="text-3xl font-bold mb-4">Ofertas Especiales</h2>
-              <p className="mb-6">Hasta 50% de descuento en productos seleccionados</p>
-              <button className="bg-white text-blue-600 px-6 py-2 rounded-lg font-semibold hover:bg-gray-100">
+            <div className="bg-gradient-to-r from-green-600 to-green-700 text-white rounded-xl p-8 mb-8">
+              <h2 className="text-3xl font-bold mb-4">Insumos Médicos de Calidad</h2>
+              <p className="mb-6">Equipamiento profesional para hospitales, clínicas y consultorios</p>
+              <button className="bg-white text-green-600 px-6 py-2 rounded-lg font-semibold hover:bg-gray-100">
                 Ver Ofertas
               </button>
+            </div>
+
+            {/* Info Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+              <div className="bg-white rounded-lg shadow-md p-6 flex items-center">
+                <div className="bg-green-100 p-3 rounded-full mr-4">
+                  <Truck className="w-6 h-6 text-green-600" />
+                </div>
+                <div>
+                  <h3 className="font-semibold">Envío Rápido</h3>
+                  <p className="text-sm text-gray-600">Entrega en 24-48hs en La Rioja</p>
+                </div>
+              </div>
+              <div className="bg-white rounded-lg shadow-md p-6 flex items-center">
+                <div className="bg-green-100 p-3 rounded-full mr-4">
+                  <Shield className="w-6 h-6 text-green-600" />
+                </div>
+                <div>
+                  <h3 className="font-semibold">Productos Certificados</h3>
+                  <p className="text-sm text-gray-600">ANMAT y certificaciones internacionales</p>
+                </div>
+              </div>
+              <div className="bg-white rounded-lg shadow-md p-6 flex items-center">
+                <div className="bg-green-100 p-3 rounded-full mr-4">
+                  <Phone className="w-6 h-6 text-green-600" />
+                </div>
+                <div>
+                  <h3 className="font-semibold">Asesoramiento</h3>
+                  <p className="text-sm text-gray-600">Atención personalizada</p>
+                </div>
+              </div>
             </div>
 
             {/* Categories */}
@@ -294,7 +324,9 @@ function EcommerceContent() {
                   <button
                     key={cat.id}
                     onClick={() => setSelectedCategory(cat.id)}
-                    className="bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow text-center"
+                    className={`bg-white rounded-lg shadow-md p-4 hover:shadow-lg transition-shadow text-center ${
+                      selectedCategory === cat.id ? 'ring-2 ring-green-500' : ''
+                    }`}
                   >
                     <div className="text-3xl mb-2">{cat.icon}</div>
                     <p className="text-sm">{cat.name}</p>

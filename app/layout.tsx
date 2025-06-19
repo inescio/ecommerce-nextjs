@@ -5,13 +5,13 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'ShopPro - Tu Ecommerce de Confianza',
-  description: 'Encuentra los mejores productos al mejor precio',
-  keywords: 'ecommerce, tienda online, compras, productos',
-  authors: [{ name: 'ShopPro Team' }],
+  title: 'Insumos Salud LR - Equipamiento Médico en La Rioja',
+  description: 'Venta de insumos médicos, equipamiento hospitalario y productos de salud en La Rioja. Calidad certificada y envío rápido.',
+  keywords: 'insumos médicos, equipamiento hospitalario, productos salud, La Rioja, estetoscopios, termómetros, barbijos',
+  authors: [{ name: 'Insumos Salud LR' }],
   openGraph: {
-    title: 'ShopPro - Tu Ecommerce de Confianza',
-    description: 'Encuentra los mejores productos al mejor precio',
+    title: 'Insumos Salud LR - Tu proveedor de confianza',
+    description: 'Equipamiento médico de calidad con certificación ANMAT',
     type: 'website',
   },
 }

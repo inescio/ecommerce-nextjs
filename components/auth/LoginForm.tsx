@@ -98,7 +98,7 @@ export default function LoginForm({ setView }: LoginFormProps) {
 
           <button
             type="submit"
-            className="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition-colors"
+            className="w-full bg-green-600 text-white py-2 rounded-lg hover:bg-green-700 transition-colors"
           >
             {isLogin ? 'Iniciar Sesión' : 'Crear Cuenta'}
           </button>
@@ -109,7 +109,7 @@ export default function LoginForm({ setView }: LoginFormProps) {
             {isLogin ? '¿No tienes cuenta?' : '¿Ya tienes cuenta?'}
             <button
               onClick={() => setIsLogin(!isLogin)}
-              className="ml-1 text-blue-500 hover:underline"
+              className="ml-1 text-green-600 hover:underline"
             >
               {isLogin ? 'Regístrate' : 'Inicia Sesión'}
             </button>

@@ -1,6 +1,39 @@
-const CartContext = createContext();
+'use client';
 
-const cartReducer = (state, action) => {
+import React, { createContext, useContext, useReducer, ReactNode } from 'react';
+import { Product } from '@/types';
+
+interface CartItem extends Product {
+  quantity: number;
+}
+
+interface CartState {
+  items: CartItem[];
+  isOpen: boolean;
+}
+
+type CartAction =
+  | { type: 'ADD_TO_CART'; payload: Product }
+  | { type: 'REMOVE_FROM_CART'; payload: number }
+  | { type: 'UPDATE_QUANTITY'; payload: { id: number; quantity: number } }
+  | { type: 'CLEAR_CART' }
+  | { type: 'SET_CART_OPEN'; payload: boolean };
+
+interface CartContextType {
+  cart: CartItem[];
+  isCartOpen: boolean;
+  addToCart: (product: Product) => void;
+  removeFromCart: (productId: number) => void;
+  updateQuantity: (productId: number, quantity: number) => void;
+  clearCart: () => void;
+  setCartOpen: (isOpen: boolean) => void;
+  getTotalItems: () => number;
+  getTotalPrice: () => number;
+}
+
+const CartContext = createContext<CartContextType | undefined>(undefined);
+
+const cartReducer = (state: CartState, action: CartAction): CartState => {
   switch (action.type) {
     case 'ADD_TO_CART':
       const existing = state.items.find(item => item.id === action.payload.id);
@@ -46,22 +79,22 @@ const cartReducer = (state, action) => {
   }
 };
 
-const CartProvider = ({ children }) => {
+export const CartProvider = ({ children }: { children: ReactNode }) => {
   const [state, dispatch] = useReducer(cartReducer, {
     items: [],
     isOpen: false
   });
 
-  const addToCart = (product) => {
+  const addToCart = (product: Product) => {
     dispatch({ type: 'ADD_TO_CART', payload: product });
     dispatch({ type: 'SET_CART_OPEN', payload: true });
   };
 
-  const removeFromCart = (productId) => {
+  const removeFromCart = (productId: number) => {
     dispatch({ type: 'REMOVE_FROM_CART', payload: productId });
   };
 
-  const updateQuantity = (productId, quantity) => {
+  const updateQuantity = (productId: number, quantity: number) => {
     dispatch({ type: 'UPDATE_QUANTITY', payload: { id: productId, quantity } });
   };
 
@@ -69,7 +102,7 @@ const CartProvider = ({ children }) => {
     dispatch({ type: 'CLEAR_CART' });
   };
 
-  const setCartOpen = (isOpen) => {
+  const setCartOpen = (isOpen: boolean) => {
     dispatch({ type: 'SET_CART_OPEN', payload: isOpen });
   };
 
@@ -93,7 +126,7 @@ const CartProvider = ({ children }) => {
   );
 };
 
-const useCart = () => {
+export const useCart = () => {
   const context = useContext(CartContext);
   if (!context) throw new Error('useCart debe usarse dentro de CartProvider');
   return context;
